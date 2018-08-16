@@ -5,5 +5,16 @@
   <%= @cocktail.name %>
 </p>
 
+<ul>
+    <% @cocktail.ingredients.each do |ingredient| %>
+  <li>
+    <%= ingredient.doses.first.description %> <%= ingredient.name %>
+    <i class="fas fa-trash-alt"></i>
+    <%= link_to 'Delete', dose_path(ingredient.doses.first.id), data: {:confirm => 'Are you sure?'}, :method => :delete%>
+  </li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |
+<%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail) %> |
 <%= link_to 'Back', cocktails_path %>

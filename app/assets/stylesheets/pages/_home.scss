@@ -1,1 +1,11 @@
 // Specific CSS for your home-page
+.cocktail-wrapper{
+  padding:10px;
+}
+
+.cocktail-background {
+  color:white;
+  height: 300px;
+  background-image: url("https://source.unsplash.com/300x300/?cocktail");
+  background-size: cover;
+}
