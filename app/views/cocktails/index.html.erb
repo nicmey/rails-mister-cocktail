@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%# cl_image_tag("h62amlhgjkxlxack7c1g.jpg") %>
+
 <div class="container">
   <h1>Cocktails</h1>
   <%= link_to 'New Cocktail', new_cocktail_path, class: "btn btn-primary"%>
@@ -7,13 +9,15 @@
   <div class="row">
     <% @cocktails.each do |cocktail| %>
     <div class="cocktail-wrapper col-xs-4">
-      <div class="cocktail-background">
+
+      <div class="cocktail-background"
+        style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+               url('<%= cl_image_path cocktail.photo, height: 300, width: 300, crop: :fill %>')">
         <h2><%= cocktail.name %></h2>
         <%= link_to 'View details', cocktail_path(cocktail) %>
       </div>
     </div>
     <% end %>
   </div>
-
 
 </div>

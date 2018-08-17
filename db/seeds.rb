@@ -6,17 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Ingredient.destroy_all
-# Dose.destroy_all
-# Cocktail.destroy_all
+Ingredient.destroy_all
+Dose.destroy_all
+Cocktail.destroy_all
 
 url = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
 
-10.times do
+1.times do
   buffer = open(url).read
   result = JSON.parse(buffer)
   name_cocktail = result['drinks'].first['strDrink']
-  c1 = Cocktail.create({name: name_cocktail})
+  c1 = Cocktail.create({name: name_cocktail, photo: "oboyrryqm8lxmqi8iimx"})
 
   name_ingredient1 = result['drinks'].first['strIngredient1']
   i1 = Ingredient.create(name: name_ingredient1)
